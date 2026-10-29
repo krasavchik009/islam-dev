@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Сайты и Telegram-боты под ключ</title>
-<meta name="description" content="Разработка лендингов, сайтов и Telegram-ботов для бизнеса. Быстро, недорого, с гарантией.">
+<title>Сайты и боты для бизнеса — Ислам · Dev</title>
+<meta name="description" content="Сайты с онлайн-бронью и боты для Telegram, Max и WhatsApp для гостевых домов, прокатов, кафе и любого бизнеса. От 8 000 ₽, демо под ваш бизнес — бесплатно.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
 <style>
@@ -18,6 +18,7 @@
     --accent: #4f8cff;
     --accent-2: #8a5cff;
     --ok: #33d69f;
+    --no: #6b7385;
     --radius: 18px;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -28,8 +29,10 @@
     color: var(--text);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
   }
   a { color: inherit; text-decoration: none; }
+  img { display: block; max-width: 100%; }
   .wrap { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
   .grad {
     background: linear-gradient(90deg, var(--accent), var(--accent-2));
@@ -42,8 +45,8 @@
     background: rgba(11, 13, 18, .8); backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--line);
   }
-  .nav { display: flex; align-items: center; justify-content: space-between; height: 64px; }
-  .logo { font-weight: 800; font-size: 18px; letter-spacing: -.02em; }
+  .nav { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 12px; }
+  .logo { font-weight: 800; font-size: 18px; letter-spacing: -.02em; white-space: nowrap; }
   .nav-links { display: flex; gap: 28px; color: var(--muted); font-size: 15px; }
   .nav-links a:hover { color: var(--text); }
 
@@ -70,8 +73,10 @@
     background: var(--bg-2); color: var(--muted); font-size: 14px; margin-bottom: 24px;
   }
   .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--ok); box-shadow: 0 0 10px var(--ok); }
-  h1 { font-size: clamp(36px, 6vw, 64px); line-height: 1.08; letter-spacing: -.03em; font-weight: 800; max-width: 820px; }
-  .lead { font-size: clamp(17px, 2vw, 20px); color: var(--muted); max-width: 620px; margin: 22px 0 36px; }
+  h1 { font-size: clamp(36px, 6vw, 64px); line-height: 1.08; letter-spacing: -.03em; font-weight: 800; max-width: 860px; }
+  .lead { font-size: clamp(17px, 2vw, 20px); color: var(--muted); max-width: 660px; margin: 22px 0 28px; }
+  .niches { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 32px; }
+  .niches span { border: 1px solid var(--line); background: var(--bg-2); border-radius: 999px; padding: 6px 14px; font-size: 14px; }
   .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; }
   .stats { display: flex; flex-wrap: wrap; gap: 40px; margin-top: 56px; }
   .stat b { display: block; font-size: 30px; font-weight: 800; }
@@ -80,7 +85,7 @@
   section { padding: 80px 0; }
   .eyebrow { color: var(--accent); font-weight: 700; font-size: 14px; text-transform: uppercase; letter-spacing: .08em; }
   h2 { font-size: clamp(28px, 4vw, 42px); letter-spacing: -.02em; line-height: 1.15; margin: 10px 0 14px; }
-  .sub { color: var(--muted); max-width: 600px; margin-bottom: 44px; }
+  .sub { color: var(--muted); max-width: 640px; margin-bottom: 44px; }
 
   .grid { display: grid; gap: 20px; }
   .g3 { grid-template-columns: repeat(3, 1fr); }
@@ -92,27 +97,51 @@
   .card h3 { font-size: 20px; margin-bottom: 8px; }
   .card p { color: var(--muted); font-size: 15px; }
 
-  /* Pricing */
-  .price-card { display: flex; flex-direction: column; }
-  .price-card.hot { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent), 0 20px 60px -20px rgba(79,140,255,.45); }
-  .tag { align-self: flex-start; font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 999px; background: rgba(79,140,255,.15); color: var(--accent); margin-bottom: 14px; }
-  .price { font-size: 34px; font-weight: 800; margin: 14px 0 4px; }
-  .price small { font-size: 16px; color: var(--muted); font-weight: 500; }
-  .term { color: var(--muted); font-size: 14px; margin-bottom: 20px; }
-  .list { list-style: none; display: grid; gap: 10px; margin-bottom: 26px; flex: 1; }
-  .list li { padding-left: 28px; position: relative; font-size: 15px; }
-  .list li::before { content: "✓"; position: absolute; left: 0; color: var(--ok); font-weight: 800; }
-
-  .promo {
+  /* Examples */
+  .ex { padding: 0; overflow: hidden; display: flex; flex-direction: column; transition: transform .2s, border-color .2s; }
+  .ex:hover { transform: translateY(-4px); border-color: var(--accent); }
+  .ex img { aspect-ratio: 16/10; object-fit: cover; object-position: top; width: 100%; border-bottom: 1px solid var(--line); }
+  .ex-body { padding: 22px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+  .ex-body .more { margin-top: auto; padding-top: 8px; color: var(--accent); font-weight: 700; font-size: 15px; }
+  .free {
     margin-top: 28px; padding: 22px 28px; border-radius: var(--radius);
     background: linear-gradient(90deg, rgba(79,140,255,.14), rgba(138,92,255,.14));
     border: 1px dashed var(--accent); display: flex; flex-wrap: wrap; gap: 16px;
     align-items: center; justify-content: space-between;
   }
-  .promo b { font-size: 18px; }
+  .free b { font-size: 18px; }
+
+  /* Pricing */
+  .price-card { display: flex; flex-direction: column; }
+  .price-card.hot { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent), 0 20px 60px -20px rgba(79,140,255,.45); }
+  .tag { align-self: flex-start; font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 999px; background: rgba(79,140,255,.15); color: var(--accent); margin-bottom: 14px; }
+  .price { font-size: 34px; font-weight: 800; margin: 10px 0 4px; }
+  .price small { font-size: 16px; color: var(--muted); font-weight: 500; }
+  .term { color: var(--muted); font-size: 14px; margin-bottom: 20px; }
+  .list { list-style: none; display: grid; gap: 10px; margin-bottom: 26px; flex: 1; }
+  .list li { padding-left: 28px; position: relative; font-size: 15px; }
+  .list li::before { content: "✓"; position: absolute; left: 0; color: var(--ok); font-weight: 800; }
+  .list li.plus { color: var(--muted); }
+  .list li.plus::before { content: "+"; color: var(--accent); }
+  .terms { margin-top: 24px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .terms div { background: var(--bg-2); border: 1px solid var(--line); border-radius: 14px; padding: 16px 18px; font-size: 15px; color: var(--muted); }
+  .terms b { display: block; color: var(--text); font-size: 17px; }
 
   .icon { font-size: 28px; margin-bottom: 14px; }
   .step-n { font-size: 14px; font-weight: 800; color: var(--accent); margin-bottom: 10px; }
+
+  /* Bots */
+  .msgr { display: flex; flex-wrap: wrap; gap: 10px; margin: -20px 0 36px; }
+  .msgr span { display: inline-flex; align-items: center; gap: 8px; background: var(--card); border: 1px solid var(--line); border-radius: 999px; padding: 8px 16px; font-weight: 700; }
+  .msgr i { width: 10px; height: 10px; border-radius: 50%; }
+  .cmp { width: 100%; border-collapse: collapse; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; font-size: 15px; }
+  .cmp th, .cmp td { padding: 14px 18px; border-bottom: 1px solid var(--line); text-align: center; }
+  .cmp th:first-child, .cmp td:first-child { text-align: left; }
+  .cmp thead th { background: var(--bg-2); font-size: 14px; }
+  .cmp tr:last-child td { border-bottom: 0; }
+  .cmp .y { color: var(--ok); font-weight: 800; }
+  .cmp .n { color: var(--no); }
+  .cmp-wrap { overflow-x: auto; border-radius: var(--radius); }
 
   /* Demo */
   .demo { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
@@ -125,12 +154,11 @@
   .phone-top small { color: #6c7b8b; display: block; font-size: 12px; }
   .msg { background: #182533; border-radius: 14px 14px 14px 4px; padding: 10px 14px; font-size: 14px; margin-bottom: 10px; max-width: 90%; }
   .msg.me { background: #2b5278; margin-left: auto; border-radius: 14px 14px 4px 14px; }
-  .kb { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
-  .kb span { background: #2b3b4d; border-radius: 8px; text-align: center; padding: 8px; font-size: 13px; }
 
   /* FAQ */
   details { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 20px 24px; margin-bottom: 12px; }
   summary { cursor: pointer; font-weight: 700; list-style: none; display: flex; justify-content: space-between; gap: 16px; }
+  summary::-webkit-details-marker { display: none; }
   summary::after { content: "+"; color: var(--accent); font-size: 22px; line-height: 1; }
   details[open] summary::after { content: "−"; }
   details p { color: var(--muted); margin-top: 12px; }
@@ -148,6 +176,7 @@
     .g3, .g4 { grid-template-columns: 1fr 1fr; }
     .demo { grid-template-columns: 1fr; }
     .nav-links { display: none; }
+    .terms { grid-template-columns: 1fr; }
   }
   @media (max-width: 600px) {
     .wrap { padding: 0 16px; }
@@ -156,6 +185,9 @@
     section { padding: 56px 0; }
     .hero-actions .btn { width: 100%; }
     .stats { gap: 24px; }
+    .cmp { font-size: 13px; }
+    .cmp th, .cmp td { padding: 10px 8px; }
+    .free .btn { width: 100%; }
   }
 </style>
 </head>
@@ -165,9 +197,9 @@
   <div class="wrap nav">
     <div class="logo">⚡ <span data-name>Ислам</span> · Dev</div>
     <nav class="nav-links">
-      <a href="#services">Услуги</a>
+      <a href="#examples">Примеры</a>
       <a href="#prices">Цены</a>
-      <a href="#process">Как работаю</a>
+      <a href="#bots">Боты</a>
       <a href="#faq">Вопросы</a>
     </nav>
     <a class="btn btn-primary btn-sm" data-tg href="#">Написать</a>
@@ -178,69 +210,46 @@
   <!-- HERO -->
   <section class="hero">
     <div class="wrap">
-      <div class="badge"><span class="dot"></span> Беру новые проекты</div>
-      <h1>Сайты и Telegram-боты, которые <span class="grad">приводят клиентов</span></h1>
-      <p class="lead">Сделаю лендинг, сайт-визитку или бота для вашего бизнеса. Быстро, по фиксированной цене и без предоплаты всей суммы.</p>
+      <div class="badge"><span class="dot"></span> Архыз и вся КЧР · беру новые проекты</div>
+      <h1>Сайт с онлайн-бронью и бот, который <span class="grad">отвечает клиентам за вас</span></h1>
+      <p class="lead">Заявки приходят вам в Telegram, Max или WhatsApp, а бот сам отвечает на «есть места?», «сколько стоит?», «где вы?» даже ночью. Сделаю под любой бизнес.</p>
+      <div class="niches"><span>🏡 гостевые дома</span><span>⛷ прокаты</span><span>🍽 кафе и рестораны</span><span>🚙 туры и квадро</span><span>🛠 услуги и мастера</span><span>✨ любой бизнес</span></div>
       <div class="hero-actions">
-        <a class="btn btn-primary" data-bot href="#">Обсудить проект в боте →</a>
-        <a class="btn btn-ghost" href="#prices">Посмотреть цены</a>
+        <a class="btn btn-primary" href="#examples">Посмотреть примеры →</a>
+        <a class="btn btn-ghost" data-bot href="#">Бесплатное демо под мой бизнес</a>
       </div>
       <div class="stats">
-        <div class="stat"><b>от 2 дней</b><span>срок запуска</span></div>
+        <div class="stat"><b>от 8 000 ₽</b><span>сайт под ключ</span></div>
+        <div class="stat"><b>0 ₽</b><span>демо под ваш бизнес</span></div>
         <div class="stat"><b>50 / 50</b><span>оплата по этапам</span></div>
-        <div class="stat"><b>14 дней</b><span>бесплатных правок</span></div>
+        <div class="stat"><b>5–7 дней</b><span>до запуска</span></div>
       </div>
     </div>
   </section>
 
-  <!-- SERVICES -->
-  <section id="services">
+  <!-- EXAMPLES -->
+  <section id="examples">
     <div class="wrap">
-      <div class="eyebrow">Услуги</div>
-      <h2>Что я делаю</h2>
-      <p class="sub">Беру задачу от идеи до запуска: тексты, дизайн, вёрстка, хостинг и домен.</p>
+      <div class="eyebrow">Примеры</div>
+      <h2>Живые демо — нажмите и попробуйте</h2>
+      <p class="sub">Можно выбрать даты, забронировать и задать вопрос боту. Названия вымышленные, а сайт для вас будет с вашими фото, ценами и контактами.</p>
       <div class="grid g3">
-        <div class="card">
-          <div class="icon">🚀</div>
-          <h3>Лендинги</h3>
-          <p>Одностраничный продающий сайт под рекламу, Авито или соцсети. Адаптивный, быстрый, с формой заявки.</p>
-        </div>
-        <div class="card">
-          <div class="icon">🤖</div>
-          <h3>Telegram-боты</h3>
-          <p>Приём заявок и записей, каталог, ответы на частые вопросы, уведомления. Работает круглосуточно вместо менеджера.</p>
-        </div>
-        <div class="card">
-          <div class="icon">🌐</div>
-          <h3>Сайты-визитки</h3>
-          <p>Несколько страниц об услугах компании, портфолио, контакты, карта. Подключу домен и аналитику.</p>
-        </div>
+        <a class="card ex" href="https://vslm-dev.github.io/guesthouse-demo/" target="_blank" rel="noopener">
+          <img src="img/guesthouse.jpg" alt="Демо сайта гостевого дома" loading="lazy">
+          <div class="ex-body"><h3>🏡 Гостевой дом</h3><p>Номера с ценами, бронь на даты с расчётом суммы, запись в баню, бот отвечает гостям.</p><span class="more">Открыть демо →</span></div>
+        </a>
+        <a class="card ex" href="https://vslm-dev.github.io/restaurant-demo/" target="_blank" rel="noopener">
+          <img src="img/restaurant.jpg" alt="Демо сайта ресторана" loading="lazy">
+          <div class="ex-body"><h3>🍽 Ресторан и кафе</h3><p>Меню по вкладкам, бронь стола, заказ с доставкой в отель, заявки на банкет.</p><span class="more">Открыть демо →</span></div>
+        </a>
+        <a class="card ex" href="https://vslm-dev.github.io/rental-demo/" target="_blank" rel="noopener">
+          <img src="img/rental.jpg" alt="Демо сайта проката снаряжения" loading="lazy">
+          <div class="ex-body"><h3>⛷ Прокат снаряжения</h3><p>Цены на день и на несколько дней, бронь лыж и сноубордов, бот подскажет размер.</p><span class="more">Открыть демо →</span></div>
+        </a>
       </div>
-    </div>
-  </section>
-
-  <!-- DEMO -->
-  <section>
-    <div class="wrap demo">
-      <div>
-        <div class="eyebrow">Живой пример</div>
-        <h2>Попробуйте моего бота прямо сейчас</h2>
-        <p class="sub">Это мой рабочий бот: в нём можно посмотреть услуги и оставить заявку за минуту. Такого же я сделаю для вашего бизнеса. А сайт, который вы сейчас читаете, тоже моя работа.</p>
-        <a class="btn btn-primary" data-bot href="#">Открыть бота в Telegram</a>
-      </div>
-      <div class="phone" aria-hidden="true">
-        <div class="phone-top">
-          <div class="ava">🤖</div>
-          <div><b>Бот-заявки</b><small>бот</small></div>
-        </div>
-        <div class="msg me">/start</div>
-        <div class="msg">👋 Привет! Я помогу подобрать сайт или бота для вашего бизнеса. Что вас интересует?</div>
-        <div class="kb">
-          <span>💼 Услуги и цены</span>
-          <span>📝 Оставить заявку</span>
-          <span>⚙️ Как работаю</span>
-          <span>❓ Вопросы</span>
-        </div>
+      <div class="free">
+        <div><b>🎁 Демо под ваш бизнес — бесплатно</b><br><span style="color:var(--muted)">Соберу пример с вашими фото и ценами с Яндекс.Карт. Не понравится — вы ничего не должны.</span></div>
+        <a class="btn btn-primary btn-sm" data-bot href="#">Хочу демо</a>
       </div>
     </div>
   </section>
@@ -249,50 +258,93 @@
   <section id="prices">
     <div class="wrap">
       <div class="eyebrow">Цены</div>
-      <h2>Честные фиксированные цены</h2>
-      <p class="sub">Итоговую стоимость называю до начала работы, и она не меняется.</p>
+      <h2>Три понятных пакета</h2>
+      <p class="sub">Цену называю до начала работы, и она не меняется. Без скрытых платежей.</p>
       <div class="grid g3">
         <div class="card price-card">
-          <h3>Telegram-бот</h3>
-          <div class="price">от 3 000 <small>₽</small></div>
-          <div class="term">2–4 дня</div>
+          <h3>Старт</h3>
+          <div class="price">8 000 <small>₽</small></div>
+          <div class="term">сайт за 5 дней</div>
           <ul class="list">
-            <li>Меню с кнопками</li>
-            <li>Приём заявок вам в личку</li>
-            <li>Ответы на частые вопросы</li>
-            <li>Запуск на сервере</li>
+            <li>Сайт под ключ: тексты, фото, адаптив под телефоны</li>
+            <li>Цены, услуги, контакты, карта</li>
+            <li>Форма заявки или брони</li>
+            <li>Заявки сразу вам в Telegram, Max или WhatsApp</li>
+            <li>Политика конфиденциальности и согласие на обработку данных</li>
           </ul>
           <a class="btn btn-ghost" data-bot href="#">Заказать</a>
         </div>
         <div class="card price-card hot">
-          <span class="tag">Чаще всего заказывают</span>
-          <h3>Лендинг</h3>
-          <div class="price">от 5 000 <small>₽</small></div>
-          <div class="term">3–5 дней</div>
+          <span class="tag">Чаще всего выбирают</span>
+          <h3>Сайт + бот</h3>
+          <div class="price">12 000 <small>₽</small></div>
+          <div class="term">5–7 дней</div>
           <ul class="list">
-            <li>Продающая структура и тексты</li>
-            <li>Адаптив под телефоны</li>
-            <li>Форма заявки в Telegram</li>
-            <li>Хостинг и подключение домена</li>
+            <li>Всё из «Старта»</li>
+            <li>Бот-администратор для ваших клиентов</li>
+            <li>Отвечает на частые вопросы круглосуточно</li>
+            <li>Принимает запрос на даты и передаёт вам, а вы подтверждаете</li>
+            <li class="plus">Бот на выбор: Telegram, Max или WhatsApp</li>
           </ul>
           <a class="btn btn-primary" data-bot href="#">Заказать</a>
         </div>
         <div class="card price-card">
-          <h3>Сайт + бот</h3>
-          <div class="price">от 7 000 <small>₽</small></div>
-          <div class="term">5–7 дней</div>
+          <h3>Максимум</h3>
+          <div class="price">20 000 <small>₽</small></div>
+          <div class="term">7–10 дней</div>
           <ul class="list">
-            <li>Лендинг под ключ</li>
-            <li>Telegram-бот для заявок</li>
-            <li>Связка: заявки с сайта в бота</li>
-            <li>Месяц поддержки</li>
+            <li>Всё из «Сайт + бот»</li>
+            <li>Календарь занятости: бот сам видит свободные даты</li>
+            <li>Отдельные страницы номеров и услуг</li>
+            <li>Карточки на Яндекс.Картах и в 2ГИС</li>
+            <li>3 месяца поддержки и мелких правок</li>
           </ul>
           <a class="btn btn-ghost" data-bot href="#">Заказать</a>
         </div>
       </div>
-      <div class="promo">
-        <div><b>🔥 Набираю портфолио: −30% первым 5 клиентам</b><br><span style="color:var(--muted)">Взамен прошу только честный отзыв на Авито.</span></div>
-        <a class="btn btn-primary btn-sm" data-bot href="#">Забронировать скидку</a>
+      <div class="terms">
+        <div><b>50 / 50</b>Половина на старте, половина после запуска, когда результат вас устроит.</div>
+        <div><b>500 ₽ в месяц за бота</b>Это сервер, на котором бот работает круглосуточно. Сайт хостится бесплатно.</div>
+        <div><b>Всё ваше</b>Передаю доступы и показываю, как менять цены и тексты.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOTS -->
+  <section id="bots">
+    <div class="wrap">
+      <div class="eyebrow">Боты</div>
+      <h2>Бот там, где ваши клиенты</h2>
+      <p class="sub">Один бот, а мессенджер выбираете вы: Telegram, Max или WhatsApp. Можно подключить сразу несколько.</p>
+      <div class="msgr">
+        <span><i style="background:#2aabee"></i>Telegram</span>
+        <span><i style="background:#7b5cff"></i>Max</span>
+        <span><i style="background:#25d366"></i>WhatsApp</span>
+      </div>
+      <div class="demo">
+        <div class="cmp-wrap">
+          <table class="cmp">
+            <thead><tr><th>Что умеет бот</th><th>Сайт + бот</th><th>Максимум</th></tr></thead>
+            <tbody>
+              <tr><td>Отвечает на частые вопросы 24/7</td><td class="y">✓</td><td class="y">✓</td></tr>
+              <tr><td>Показывает цены и как добраться</td><td class="y">✓</td><td class="y">✓</td></tr>
+              <tr><td>Принимает заявку на даты и сразу пересылает вам</td><td class="y">✓</td><td class="y">✓</td></tr>
+              <tr><td>Сам знает, какие даты свободны</td><td class="n">—</td><td class="y">✓</td></tr>
+              <tr><td>Календарь занятости, который ведёте вы</td><td class="n">—</td><td class="y">✓</td></tr>
+            </tbody>
+          </table>
+          <p style="color:var(--muted);font-size:14px;margin-top:14px">В пакете «Сайт + бот» бот не знает занятость: он принимает запрос и передаёт вам, а вы подтверждаете гостю. Для большинства гостевых домов и прокатов этого хватает.</p>
+        </div>
+        <div class="phone" aria-hidden="true">
+          <div class="phone-top">
+            <div class="ava">🏔️</div>
+            <div><b>Гостевой дом · бот</b><small>онлайн 24/7</small></div>
+          </div>
+          <div class="msg me">Здравствуйте! Есть места на 3–6 января? Нас двое</div>
+          <div class="msg">Здравствуйте! 🙌 Передал ваш запрос хозяину, он подтвердит в течение 15 минут. Пока можно посмотреть номера: от 4 500 ₽ за ночь.</div>
+          <div class="msg me">А баня есть?</div>
+          <div class="msg">Да, баня на дровах 🧖 2 часа — 2 500 ₽, до 4 гостей.</div>
+        </div>
       </div>
     </div>
   </section>
@@ -303,10 +355,10 @@
       <div class="eyebrow">Почему я</div>
       <h2>Работаю так, чтобы вам было спокойно</h2>
       <div class="grid g4" style="margin-top:36px">
-        <div class="card"><div class="icon">💳</div><h3>Оплата частями</h3><p>50% на старте, 50% после того, как результат вам понравился.</p></div>
-        <div class="card"><div class="icon">⚡</div><h3>Быстро</h3><p>Первую версию показываю через 1–2 дня.</p></div>
-        <div class="card"><div class="icon">💬</div><h3>На связи</h3><p>Отвечаю в Telegram в течение часа, каждый день.</p></div>
-        <div class="card"><div class="icon">🔑</div><h3>Всё ваше</h3><p>Передаю исходники, доступы и инструкцию по управлению.</p></div>
+        <div class="card"><div class="icon">🎁</div><h3>Сначала демо</h3><p>Покажу пример под ваш бизнес до оплаты. Не понравится — не платите.</p></div>
+        <div class="card"><div class="icon">💳</div><h3>Оплата частями</h3><p>50% на старте, 50% после запуска.</p></div>
+        <div class="card"><div class="icon">🔒</div><h3>Данные в России</h3><p>Данные ваших клиентов хранятся на российском сервере, на сайте есть политика и согласие.</p></div>
+        <div class="card"><div class="icon">📍</div><h3>Я местный</h3><p>Знаю, как работает сезон в Архызе. На связи каждый день.</p></div>
       </div>
     </div>
   </section>
@@ -317,10 +369,10 @@
       <div class="eyebrow">Этапы</div>
       <h2>Как проходит работа</h2>
       <div class="grid g4" style="margin-top:36px">
-        <div class="card"><div class="step-n">01</div><h3>Заявка</h3><p>Пишете в бота или в личку, коротко описываете задачу.</p></div>
-        <div class="card"><div class="step-n">02</div><h3>Обсуждение</h3><p>Уточняю детали, называю точную цену и срок.</p></div>
-        <div class="card"><div class="step-n">03</div><h3>Разработка</h3><p>Показываю промежуточный результат, вносим правки.</p></div>
-        <div class="card"><div class="step-n">04</div><h3>Запуск</h3><p>Публикую проект, передаю доступы, 14 дней поддержки.</p></div>
+        <div class="card"><div class="step-n">01</div><h3>Демо</h3><p>Пишете мне. За день собираю бесплатное демо с вашими фото и ценами.</p></div>
+        <div class="card"><div class="step-n">02</div><h3>Пакет</h3><p>Выбираете пакет и мессенджер для заявок и бота. Предоплата 50%.</p></div>
+        <div class="card"><div class="step-n">03</div><h3>Доработка</h3><p>Правим тексты, цены и фото, подключаем бота.</p></div>
+        <div class="card"><div class="step-n">04</div><h3>Запуск</h3><p>Публикую сайт, проверяем заявку вместе, вы оплачиваете вторую половину.</p></div>
       </div>
     </div>
   </section>
@@ -331,11 +383,14 @@
       <div class="eyebrow">FAQ</div>
       <h2>Частые вопросы</h2>
       <div style="margin-top:32px">
-        <details><summary>Что нужно от меня для начала?</summary><p>Короткое описание бизнеса, примеры сайтов, которые нравятся, и логотип, если есть. Тексты могу написать сам.</p></details>
-        <details><summary>Сколько стоит содержание сайта и бота?</summary><p>Лендинг можно разместить бесплатно. Домен стоит от 200 ₽ в год. Сервер для бота от 150–300 ₽ в месяц, помогу выбрать самый дешёвый вариант.</p></details>
-        <details><summary>А если мне не понравится результат?</summary><p>Вносим правки, пока не понравится, в рамках согласованного задания. Вторую часть оплаты вы вносите только после приёмки.</p></details>
-        <details><summary>Работаете с другими городами?</summary><p>Да, работаю удалённо по всей России. Всё общение в Telegram.</p></details>
-        <details><summary>Можно ли потом самому менять тексты и цены?</summary><p>Да. Покажу, как это делать, или буду вносить мелкие изменения за символическую плату.</p></details>
+        <details><summary>У меня не гостиница и не кафе. Подойдёт?</summary><p>Да. Сайт и бот делаю под любой бизнес: туры, квадро, такси, мастера, магазины, услуги. Расскажите, чем занимаетесь, и я соберу демо.</p></details>
+        <details><summary>Что нужно от меня для начала?</summary><p>Ничего сложного. Фото и цены могу взять из вашей карточки на Яндекс.Картах, тексты напишу сам. От вас — посмотреть демо и сказать, что поправить.</p></details>
+        <details><summary>Сколько стоит содержание сайта и бота?</summary><p>Сайт размещаю бесплатно. Бот работает на сервере, это 500 ₽ в месяц. Домен по желанию, от 200 ₽ в год.</p></details>
+        <details><summary>Какой мессенджер выбрать для бота?</summary><p>Тот, где пишут ваши клиенты. Можно Telegram, Max или WhatsApp, а можно сразу несколько: ответы у бота будут одинаковые.</p></details>
+        <details><summary>Бот сам бронирует номера?</summary><p>В пакете «Сайт + бот» бот принимает запрос на даты и сразу передаёт его вам, а вы подтверждаете гостю. В «Максимуме» есть календарь занятости: вы отмечаете занятые даты, а бот сам видит, что свободно.</p></details>
+        <details><summary>Где хранятся данные моих клиентов?</summary><p>На сервере в России. На сайте есть политика конфиденциальности и согласие на обработку персональных данных.</p></details>
+        <details><summary>А если мне не понравится результат?</summary><p>Сначала вы смотрите бесплатное демо, а платите, только если оно понравилось. Вторая половина оплаты — после запуска.</p></details>
+        <details><summary>Можно ли потом самому менять тексты и цены?</summary><p>Да. Покажу, как это делать, или поменяю сам. В «Максимуме» 3 месяца правок включены.</p></details>
       </div>
     </div>
   </section>
@@ -344,8 +399,8 @@
   <section>
     <div class="wrap">
       <div class="cta">
-        <h2>Обсудим ваш проект?</h2>
-        <p class="sub" style="margin:0 auto 32px">Напишите, и в течение часа я предложу решение и назову цену. Это бесплатно и ни к чему не обязывает.</p>
+        <h2>Соберу демо под ваш бизнес</h2>
+        <p class="sub" style="margin:0 auto 32px">Напишите название вашего бизнеса или ссылку на него на Яндекс.Картах, и за день я пришлю демо. Бесплатно и ни к чему не обязывает.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" data-bot href="#">Оставить заявку в боте</a>
           <a class="btn btn-ghost" data-tg href="#">Написать в Telegram</a>
@@ -356,7 +411,7 @@
 </main>
 
 <footer>
-  <div class="wrap">© <span id="year"></span> <span data-name>Ислам</span> · Разработка сайтов и Telegram-ботов</div>
+  <div class="wrap">© <span id="year"></span> <span data-name>Ислам</span> · Сайты и боты для бизнеса · Архыз, КЧР</div>
 </footer>
 
 <script>
