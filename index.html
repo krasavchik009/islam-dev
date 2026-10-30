@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Сайты и боты для бизнеса — Ислам · Dev</title>
-<meta name="description" content="Сайты с онлайн-бронью и боты для Telegram, Max и WhatsApp для гостевых домов, прокатов, кафе и любого бизнеса. От 8 000 ₽, демо под ваш бизнес — бесплатно.">
+<meta name="description" content="Сайты с онлайн-бронью, интернет-магазины и боты для Telegram, Max и WhatsApp для гостевых домов, прокатов, кафе, магазинов и любого бизнеса. От 8 000 ₽, демо под ваш бизнес — бесплатно.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
 <style>
@@ -90,6 +90,7 @@
   .grid { display: grid; gap: 20px; }
   .g3 { grid-template-columns: repeat(3, 1fr); }
   .g4 { grid-template-columns: repeat(4, 1fr); }
+  .g2 { grid-template-columns: repeat(2, 1fr); }
   .card {
     background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
     padding: 28px;
@@ -173,14 +174,14 @@
   footer { padding: 36px 0; color: var(--muted); font-size: 14px; border-top: 1px solid var(--line); text-align: center; }
 
   @media (max-width: 900px) {
-    .g3, .g4 { grid-template-columns: 1fr 1fr; }
+    .g3, .g4, .g2 { grid-template-columns: 1fr 1fr; }
     .demo { grid-template-columns: 1fr; }
     .nav-links { display: none; }
     .terms { grid-template-columns: 1fr; }
   }
   @media (max-width: 600px) {
     .wrap { padding: 0 16px; }
-    .g3, .g4 { grid-template-columns: 1fr; }
+    .g3, .g4, .g2 { grid-template-columns: 1fr; }
     .hero { padding: 64px 0 48px; }
     section { padding: 56px 0; }
     .hero-actions .btn { width: 100%; }
@@ -212,8 +213,8 @@
     <div class="wrap">
       <div class="badge"><span class="dot"></span> Архыз и вся КЧР · беру новые проекты</div>
       <h1>Сайт с онлайн-бронью и бот, который <span class="grad">отвечает клиентам за вас</span></h1>
-      <p class="lead">Заявки приходят вам в Telegram, Max или WhatsApp, а бот сам отвечает на «есть места?», «сколько стоит?», «где вы?» даже ночью. Сделаю под любой бизнес.</p>
-      <div class="niches"><span>🏡 гостевые дома</span><span>⛷ прокаты</span><span>🍽 кафе и рестораны</span><span>🚙 туры и квадро</span><span>🛠 услуги и мастера</span><span>✨ любой бизнес</span></div>
+      <p class="lead">Заявки и заказы приходят вам в Telegram, Max или WhatsApp, а бот сам отвечает на «есть места?», «сколько стоит?», «где вы?» даже ночью. Сделаю под любой бизнес.</p>
+      <div class="niches"><span>🏡 гостевые дома</span><span>⛷ прокаты</span><span>🍽 кафе и рестораны</span><span>🛍 магазины</span><span>🚙 туры и квадро</span><span>🛠 услуги и мастера</span><span>✨ любой бизнес</span></div>
       <div class="hero-actions">
         <a class="btn btn-primary" href="#examples">Посмотреть примеры →</a>
         <a class="btn btn-ghost" data-bot href="#">Бесплатное демо под мой бизнес</a>
@@ -232,8 +233,8 @@
     <div class="wrap">
       <div class="eyebrow">Примеры</div>
       <h2>Живые демо — нажмите и попробуйте</h2>
-      <p class="sub">Можно выбрать даты, забронировать и задать вопрос боту. Названия вымышленные, а сайт для вас будет с вашими фото, ценами и контактами.</p>
-      <div class="grid g3">
+      <p class="sub">Можно выбрать даты, забронировать, положить вещи в корзину и задать вопрос боту. Названия вымышленные, а сайт для вас будет с вашими фото, ценами и контактами.</p>
+      <div class="grid g2">
         <a class="card ex" href="https://vslm-dev.github.io/guesthouse-demo/" target="_blank" rel="noopener">
           <img src="img/guesthouse.jpg" alt="Демо сайта гостевого дома" loading="lazy">
           <div class="ex-body"><h3>🏡 Гостевой дом</h3><p>Номера с ценами, бронь на даты с расчётом суммы, запись в баню, бот отвечает гостям.</p><span class="more">Открыть демо →</span></div>
@@ -245,6 +246,10 @@
         <a class="card ex" href="https://vslm-dev.github.io/rental-demo/" target="_blank" rel="noopener">
           <img src="img/rental.jpg" alt="Демо сайта проката снаряжения" loading="lazy">
           <div class="ex-body"><h3>⛷ Прокат снаряжения</h3><p>Цены на день и на несколько дней, бронь лыж и сноубордов, бот подскажет размер.</p><span class="more">Открыть демо →</span></div>
+        </a>
+        <a class="card ex" href="https://vslm-dev.github.io/shop-demo/" target="_blank" rel="noopener">
+          <img src="img/shop.jpg" alt="Демо интернет-магазина одежды" loading="lazy">
+          <div class="ex-body"><h3>🛍 Интернет-магазин</h3><p>Каталог с фильтрами по размеру, корзина, оформление заказа с доставкой, бот-стилист.</p><span class="more">Открыть демо →</span></div>
         </a>
       </div>
       <div class="free">
@@ -301,6 +306,10 @@
           </ul>
           <a class="btn btn-ghost" data-bot href="#">Заказать</a>
         </div>
+      </div>
+      <div class="free">
+        <div><b>🛍 Интернет-магазин — от 20 000 ₽</b><br><span style="color:var(--muted)">Каталог с размерами и цветами, корзина, заказ вам в мессенджер. Онлайн-оплату картой, остатки и доставку СДЭК можно добавить вторым этапом — от 15 000 ₽.</span></div>
+        <a class="btn btn-primary btn-sm" href="https://vslm-dev.github.io/shop-demo/" target="_blank" rel="noopener">Пример магазина</a>
       </div>
       <div class="terms">
         <div><b>50 / 50</b>Половина на старте, половина после запуска, когда результат вас устроит.</div>
@@ -384,6 +393,7 @@
       <h2>Частые вопросы</h2>
       <div style="margin-top:32px">
         <details><summary>У меня не гостиница и не кафе. Подойдёт?</summary><p>Да. Сайт и бот делаю под любой бизнес: туры, квадро, такси, мастера, магазины, услуги. Расскажите, чем занимаетесь, и я соберу демо.</p></details>
+        <details><summary>Делаете интернет-магазины?</summary><p>Да. Первый этап — каталог, корзина и оформление заказа, заказ приходит вам в мессенджер: от 20 000 ₽. Второй — онлайн-оплата картой, учёт остатков и доставка СДЭК: от 15 000 ₽. Для онлайн-оплаты нужны ИП или самозанятость.</p></details>
         <details><summary>Что нужно от меня для начала?</summary><p>Ничего сложного. Фото и цены могу взять из вашей карточки на Яндекс.Картах, тексты напишу сам. От вас — посмотреть демо и сказать, что поправить.</p></details>
         <details><summary>Сколько стоит содержание сайта и бота?</summary><p>Сайт размещаю бесплатно. Бот работает на сервере, это 500 ₽ в месяц. Домен по желанию, от 200 ₽ в год.</p></details>
         <details><summary>Какой мессенджер выбрать для бота?</summary><p>Тот, где пишут ваши клиенты. Можно Telegram, Max или WhatsApp, а можно сразу несколько: ответы у бота будут одинаковые.</p></details>
@@ -411,7 +421,7 @@
 </main>
 
 <footer>
-  <div class="wrap">© <span id="year"></span> <span data-name>Ислам</span> · Сайты и боты для бизнеса · Архыз, КЧР</div>
+  <div class="wrap">© <span id="year"></span> <span data-name>Ислам</span> · Сайты, магазины и боты для бизнеса · Архыз, КЧР</div>
 </footer>
 
 <script>
